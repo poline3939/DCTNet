@@ -4,14 +4,14 @@
 % ADCTNet parameter
 minfreq=100;         % 
 minfreq2=100;         
-freqrat_1=2^(1/48);        
-freqrat_2=2^(1/10);       
+freqrat_1=2^(1/48);   % this parameter can be changed according to the data     
+freqrat_2=2^(1/10);    % this parameter can be changed according to the data    
 maxfreq=22050;
 windsizmax=4096; %windsizmax = floor( .1 * SR);  % take a 100 ms max
 hopsiz1=1;
 hopsiz2=100;
 
-% generate ADCTNet feature
+% generate ADCTNet feature (cqt-like feature)
 [cqtrans1_2,~,~,~]=logftS2_dct2(d1,sr1,minfreq,freqrat_1,maxfreq,windsizmax,hopsiz1);
 mu=cqtrans1_2';
 [cqtrans1_3,~,~,~]=logftS2_dct2(mu(1,:),sr1,minfreq,freqrat_2,maxfreq,windsizmax,hopsiz2);
