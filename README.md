@@ -4,7 +4,7 @@
 ##### "ADCTNet_demo.m" is a MATLAB demo file to generate bird song ADCTNet feature.
 #### 2. "handel_example" folder contains codes to generate 2-layer ADCTNet and DCTNet feature for Handel's "Messiah" in MATLAB.
 ##### "ADCTNet_music_demo.m" is a MATLAB demo file to generate music ADCTNet feature, 
-##### "dctnet_music_demo.m" is a file to generate music dctnet feature.
+##### "dctnet_music_demo.m" is a file to generate music dctnet feature. "stdct.m" is the short time DCT function.
 #### 3. "plot_in_paper" folder contains MATLAB codes to generate ADCTNet, DCTNet, MFSC, LFSC, ERB-rate and scattering transform feature, and a data .mat file. 
 ##### "ADCTNet_paper_demo.m" is a MATLAB demo file to generate music ADCTNet feature,
 ##### "dctnet_demo.m" is a file to generate music dctnet feature. "stdct.m" is the short time DCT function.
