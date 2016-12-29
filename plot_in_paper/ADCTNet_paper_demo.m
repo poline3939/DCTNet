@@ -1,0 +1,38 @@
+% multiscale cqt net
+load music_classic_country_downsample.mat % music_2_d
+sig=music_2_d{1}; 
+sr=11025;					 % sample rate
+
+%% parameters (2-layer A-DCTNet)
+minfreq=40;         % G3 = freq of G below middle C in Hz
+freqrat_1=2^(1/12);        % quarter tone spacing = 1.0293022366;  
+freqrat_2=2^(1/6);        % quarter tone spacing = 1.0293022366;  
+maxfreq=5512;
+windsizmax=2048;  % windsizmax = floor( .1 * SR);  % take a 100 ms max
+hopsiz1=1;
+hopsiz2=100;
+
+mu_cqt=[];
+mu_cqt2=[];
+
+% first layer ADCTNet
+[cqtrans1_2,~,~,~]=logftS2_dct2(sig,sr,minfreq,freqrat_1,maxfreq,windsizmax,hopsiz1); 
+mu=cqtrans1_2';
+[cqtrans1_3,~,~,~]=logftS2_dct2(mu(1,:),sr,minfreq,freqrat_2,maxfreq,windsizmax,hopsiz2);
+mu3=zeros(size(cqtrans1_3));
+for jj=1:size(cqtrans1_2,2)
+    % second layer ADCTNet
+    [cqtrans1_3,~,~,~]=logftS2_dct2(mu(jj,:),sr,minfreq,freqrat_2,maxfreq,windsizmax,hopsiz2);
+    mu3=mu3+abs(cqtrans1_3); % absolute value square
+    clc; disp([num2str(jj/size(cqtrans1_2,2)*100),'%']);
+end
+mus1=log10(mu3'+realmin);
+
+% plot of ADCTNet output
+figure
+imagesc(0.1:length(sig)/sr,1:43,mus1)
+colormap(jet)
+set(gca,'Ydir','normal')
+set(gca, 'FontSize', 18, 'FontWeight', 'bold', 'FontName', 'Times New Roman')
+xlabel('Time (s)','FontSize', 18, 'FontWeight', 'bold', 'FontName', 'Times New Roman')
+ylabel('Scale','FontSize', 18, 'FontWeight', 'bold', 'FontName', 'Times New Roman')
