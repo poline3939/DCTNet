@@ -1,4 +1,4 @@
-#### DCTNet
+### DCTNet and ADCTNet
 #### This file contains MATLAB codes that generate audio DCTNet feature. 
 #### 1. "bird_song_example" folder contains 4 bird song wav file, ADCTNet and DCTNet feature code.
 #### 2. "handel_example" folder contains codes to generate 2-layer ADCTNet and DCTNet feature for Handel's "Messiah" in MATLAB.
