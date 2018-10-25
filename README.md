@@ -1,9 +1,9 @@
 ### DCTNet and ADCTNet
 #### This file contains MATLAB codes that generate audio DCTNet feature. This work has been shown in the paper: Adaptive DCTNet for Audio Signal Classification, and PCANet and DCTNet for Acoustic Signals Feature Extraction.
-#### It has been published by the Journal of Acoustical Society of America and the International Conference of Acoustic and Speech Signal Processing (ICASSP) 2017.
+##### It has been published by the Journal of Acoustical Society of America and the International Conference of Acoustic and Speech Signal Processing (ICASSP) 2017.
 
 ##### About the codes:
-#### 1. "bird_song_example" folder contains 4 bird song wav file, ADCTNet and DCTNet feature code. 
+##### 1. "bird_song_example" folder contains 4 bird song wav file, ADCTNet and DCTNet feature code. 
 ##### "ADCTNet_demo.m" is a MATLAB demo file to generate bird song ADCTNet feature.
 #### 2. "handel_example" folder contains codes to generate 2-layer ADCTNet and DCTNet feature for Handel's "Messiah" in MATLAB.
 ##### "ADCTNet_music_demo.m" is a MATLAB demo file to generate music ADCTNet feature, 
